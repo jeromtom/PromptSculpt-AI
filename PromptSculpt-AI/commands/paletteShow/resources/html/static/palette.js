@@ -45,4 +45,6 @@ window.fusionJavaScriptHandler = {
         }
         return "OK";
     },
-};
+}
+function promptToJSON(prompt) {
+}

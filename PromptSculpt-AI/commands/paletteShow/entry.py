@@ -10,9 +10,9 @@ ui = app.userInterface
 
 # TODO ********************* Change these names *********************
 CMD_ID = f'{config.COMPANY_NAME}_{config.ADDIN_NAME}_PalleteShow'
-CMD_NAME = 'Show My Palette'
-CMD_Description = 'A Fusion 360 Add-in Palette'
-PALETTE_NAME = 'My Palette Sample'
+CMD_NAME = 'PromptSculpt-AI Chatbot'
+CMD_Description = 'Sculpt CAD models in Fusion 360 by prompting AI.'
+PALETTE_NAME = 'PromptSculpt-AI Chatbot'
 IS_PROMOTED = False
 
 # Using "global" variables by referencing values from /config.py

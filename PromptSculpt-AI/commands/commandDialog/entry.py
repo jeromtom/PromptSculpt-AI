@@ -8,8 +8,8 @@ ui = app.userInterface
 
 # TODO *** Specify the command identity information. ***
 CMD_ID = f'{config.COMPANY_NAME}_{config.ADDIN_NAME}_cmdDialog'
-CMD_NAME = 'Command Dialog Sample'
-CMD_Description = 'A Fusion 360 Add-in Command with a dialog'
+CMD_NAME = 'PromptSculpt-AI'
+CMD_Description = 'Make CAD Models from simple prompts'
 
 # Specify that the command will be promoted to the panel.
 IS_PROMOTED = True
@@ -81,11 +81,11 @@ def command_created(args: adsk.core.CommandCreatedEventArgs):
     # TODO Define the dialog for your command by adding different inputs to the command.
 
     # Create a simple text box input.
-    inputs.addTextBoxCommandInput('text_box', 'Some Text', 'Enter some text.', 1, False)
+    inputs.addTextBoxCommandInput('text_box', 'CAD Prompt', 'Build a simple cube of 10 mm side.', 10, False)
 
     # Create a value input field and set the default using 1 unit of the default length unit.
     defaultLengthUnits = app.activeProduct.unitsManager.defaultLengthUnits
-    default_value = adsk.core.ValueInput.createByString('1')
+    default_value = adsk.core.ValueInput.createByString('10')
     inputs.addValueInput('value_input', 'Some Value', defaultLengthUnits, default_value)
 
     # TODO Connect to the events that are needed by this command.
