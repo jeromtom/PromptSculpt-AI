@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width/3, initial-scale=1">
+    <title>PromptSculpt-AI</title>
+    <script src="static/palette.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+</head>
+<body>
+<div>
+
+    <h1>PromptSculpt-AI</h1>
+    <div>
+        <a href="https://help.autodesk.com/view/fusion360/ENU/?guid=GUID-6C0C8148-98D0-4DBC-A4EC-D8E03A8A3B5B">
+            Learn more about working with Palettes in Fusion 360
+        </a>
+    </div>
+    <br><hr>
+</div>
+<form id="myForm">
+    <label for="prompt">Enter your prompt:</label><br>
+    <input type="text" id="prompt" name="prompt"><br>
+    <input type="submit" value="Submit">
+</form>
+
+<script>
+require('dotenv').config();
+const OpenAI = require('openai');
+const openai = new OpenAI(process.env.OPENAI_API_KEY);
+document.getElementById('myForm').addEventListener('submit', function(event) {
+    event.preventDefault();
+    var prompt = document.getElementById('prompt').value;
+    adsk.fusion.SendToPython('handlePrompt', prompt);
+});
+</script>
+
+</body>
+</html>
+
